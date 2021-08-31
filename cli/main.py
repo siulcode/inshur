@@ -34,7 +34,7 @@ def fetchall_in_yaml():
                     default_flow_style=False))
 
 
-# TODO: Finish formating the columns
+# TODO: Finish formatting the columns
 def fetchall_in_table():
     """
     Returns all entries in table format
