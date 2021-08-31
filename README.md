@@ -39,6 +39,11 @@ COMMANDS
      delete_entry
        Deletes single entry based on id
 ```
-    
+
 For a particular command help can be available with:
 `python main.py COMMAND --help`
+
+## Installation
+
+We are using a requirement file. The requirements can be installed with:
+`pip install -r requirements.txt`

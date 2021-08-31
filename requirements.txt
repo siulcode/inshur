@@ -1,0 +1,5 @@
+flask
+tabulate
+mysql-connector-python
+PyMySQL
+fire
