@@ -9,7 +9,7 @@ https://05d2-173-63-132-127.ngrok.io/
 
 The code for the API is located in <ROOT>/api.
 
-**NOTE: There is no physical infrastructure available or deployed in the public for this implementation. We are serving the API endpoint from our secret Cat WarLord bunker.
+### NOTE: There is no physical infrastructure available or deployed in the public for this implementation. We are serving the API endpoint from our secret Cat WarLord bunker.
 
 ## CLI
 
