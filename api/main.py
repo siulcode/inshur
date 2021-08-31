@@ -1,12 +1,11 @@
-import flask
-from flask import jsonify, request
+from flask import jsonify, request, Flask
 from mysql.connector import MySQLConnection, Error
 from lib.python_mysql_dbconfig import read_db_config
 from lib.catwarlord import CatWarlord
 
 
 api_helper = CatWarlord()
-app = flask.Flask(__name__)
+app = Flask(__name__)
 app.config["DEBUG"] = True
 
 ####################################
