@@ -17,6 +17,7 @@ The CLI  provides an easy way to query the API. We can also delete entries based
 
 Command line help can be accessed with: `python main.py --help`
 
+```
 NAME
     main.py
 
@@ -37,6 +38,7 @@ COMMANDS
 
      delete_entry
        Deletes single entry based on id
-
+```
+    
 For a particular command help can be available with:
 `python main.py COMMAND --help`
