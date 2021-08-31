@@ -1,0 +1,17 @@
+# Common backup files
+.DS_Store
+*.swp
+*.bak
+*.tmp
+*~
+# Various IDEs
+.project
+.idea/
+*.tmproj
+.vscode/
+logs/
+telepresence.log
+
+*.tgz
+*/_pycache_
+*/config.ini

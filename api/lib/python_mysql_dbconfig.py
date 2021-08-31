@@ -1,7 +1,7 @@
 import os
 from configparser import ConfigParser
 
-config_path = "~/build/python/inshur/api/"
+config_path = "~/build/inshur/api/"
 
 
 def read_db_config(filename='config.ini', section='mysql'):
@@ -12,7 +12,6 @@ def read_db_config(filename='config.ini', section='mysql'):
     """
     # create parser and read ini configuration file
     parser = ConfigParser()
-    parser.read(filename)
     parser.read(os.path.expanduser(config_path + filename))
     # get section, default to mysql
     db = {}
