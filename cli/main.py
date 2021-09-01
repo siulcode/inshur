@@ -38,15 +38,14 @@ def fetchall_in_yaml():
                     default_flow_style=False))
 
 
-# TODO: Finish formatting the columns
 def fetchall_in_table():
     """
-    Returns all entries in table format
+    Returns all entries in table format, output is limited to 50 entries
     : return: Returns all entries in table format
     """
     data = json.loads(fetchall())
     json_data = json.dumps(data)
-    resp = pd.read_json(json_data)
+    resp = pd.read_json(json_data).head(50)
     print(resp)
 
 
