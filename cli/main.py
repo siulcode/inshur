@@ -2,7 +2,6 @@ import requests
 import yaml
 import json
 import fire
-import tabulate
 import pandas as pd
 
 URL = 'https://05d2-173-63-132-127.ngrok.io'
