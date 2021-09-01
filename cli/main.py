@@ -3,6 +3,7 @@ import yaml
 import json
 import fire
 import tabulate
+import pandas as pd
 
 URL = 'https://05d2-173-63-132-127.ngrok.io'
 
@@ -42,8 +43,10 @@ def fetchall_in_table():
     Returns all entries in table format
     : return: Returns all entries in table format
     """
-    tabulate(fetchall(), headers=[
-        'CUID', 'Dob', 'Fact', 'First Name', 'Last Name', 'API ID'])
+    data = json.loads(fetchall())
+    json_data = json.dumps(data)
+    resp = pd.read_json(json_data)
+    print(resp)
 
 
 def delete_entry(id: int):
