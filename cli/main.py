@@ -25,7 +25,8 @@ def fetchall_in_json():
     : return: Returns all entries in json format
     """
     data = json.loads(fetchall())
-    print(data)
+    json_data = json.dumps(data)
+    print(json_data)
 
 
 def fetchall_in_yaml():
