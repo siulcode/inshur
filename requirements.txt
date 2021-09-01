@@ -1,5 +1,5 @@
 flask
-tabulate
+pandas
 mysql-connector-python
 PyMySQL
 fire
