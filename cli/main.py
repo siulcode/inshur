@@ -1,5 +1,6 @@
 import requests
 import yaml
+import json
 import fire
 import tabulate
 
@@ -22,7 +23,8 @@ def fetchall_in_json():
     Returns all entries in json format
     : return: Returns all entries in json format
     """
-    print(fetchall())
+    data = json.loads(fetchall())
+    print(data)
 
 
 def fetchall_in_yaml():
@@ -40,8 +42,8 @@ def fetchall_in_table():
     Returns all entries in table format
     : return: Returns all entries in table format
     """
-    print(tabulate(fetchall(), headers=[
-          'CUID', 'Dob', 'Fact', 'First Name', 'Last Name', 'API ID']))
+    tabulate(fetchall(), headers=[
+        'CUID', 'Dob', 'Fact', 'First Name', 'Last Name', 'API ID'])
 
 
 def delete_entry(id: int):
