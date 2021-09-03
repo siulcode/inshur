@@ -1,10 +1,10 @@
 from flask import jsonify, request, Flask
-from mysql.connector import MySQLConnection, Error
-from lib.python_mysql_dbconfig import read_db_config
 from lib.catwarlord import CatWarlord
+from lib.model.nocturnalcatmodel import NocturnalCatModel
 
 
 api_helper = CatWarlord()
+api_model = NocturnalCatModel()
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
@@ -17,35 +17,27 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 def home():
     facts = api_helper.filter_warlord_facts()  # Fetch new data
-    api_helper.insert_facts(facts)
-    return '''
+    api_model.insert_facts(facts)
+    s = '''
     <h1>Meaw!</h1>
     <p>Endpoint to query our nifty Cat warlord API.</p>
     <p>
         View all of our filtered entries here:
-        <a href="https://05d2-173-63-132-127.ngrok.io/api/v1/quotes/allfacts" />
+        <a href="{}/api/v1/quotes/allfacts" />
             Here
         </a>
     </p>
-    '''
+    '''.format(api_helper.base_url)
+
+    return s
 
 
 @app.route('/api/v1/quotes/allfacts', methods=['GET'])
 def quote_allfacts():
-    try:
-        dbconfig = read_db_config()
-        conn = MySQLConnection(**dbconfig)
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM catwarrior_facts")
-        rows = cursor.fetchall()
-        print('Total Row(s):', cursor.rowcount)
-        for row in rows:
-            print(row)
-    except Error as e:
-        print(e)
-    finally:
-        cursor.close()
-        conn.close()
+    rows = api_model.fetchall()
+    print('Total Row(s):', api_model.count)
+    for row in rows:
+        print(row)
     return jsonify(rows)
 
 
@@ -64,4 +56,4 @@ def page_not_found(e):
 
 
 # START WEB SERVER #
-app.run()
+app.run(port=8181)
